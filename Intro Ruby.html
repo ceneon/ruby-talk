@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+
+  <style type="text/css">
+
+    article.biglogo{ background-image:url(img/ruby_logo_2.png) !important; }
+/*	body#rubyslides{ 
+		background: #D7D7D7;
+		background: -o-radial-gradient(#F0534E, #E70000);
+		background: -moz-radial-gradient(#F0534E, #E70000);
+		background: -webkit-radial-gradient(#F0534E, #E70000);
+		background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(#F0938E), to(#E70000));
+	} */
+
+	.slides.template-default > article:not(.nobackground):not(.biglogo) { background-image:none !important; }
+
+  </style> 
+
+   <script
+      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+  </head>
+ 
+
+  <body style='display: none' id="rubyslides">
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          Introducción
+          <br>
+          a Ruby
+        </h1>
+        <p>
+          Ruby Argentina A.C.
+          <br>
+          4 de Octubre de 2011
+        </p>
+      </article>
+
+	<article>
+		<h2>¿Quiénes somos?</h2>
+	</article>
+	
+	<article>
+		<h2>Ruby Argentina<br/>
+			Asociación Civil</h2>
+	</article>
+	
+	<article>
+		<h2>ルビ (Ruby)</h2>
+		<p>
+          <img class='centered' style='width:400px' src='img/ruby_logo_2.png'>
+        </p>
+        <div class='source'>
+          
+        </div>
+	</article>
+
+	<article>
+		<h3>Preguntas</h3>
+
+        <ul class="build">
+			<li>¿Quienes ya usaron Ruby?</li>
+			<li>¿Quienes escucharon hablar de Rails?</li>
+			<li>¿Usan Java?</li>
+			<li>¿Usan .NET?</li>
+			<li>¿Usan PHP?</li>
+			
+			<!-- ... otras?? -->
+        </ul>
+	</article>
+	
+	<article>
+		<h3>Agenda</h3>
+
+        <ul class="build">
+			<li>Características de Ruby</li>
+			<li>Instalar Ruby</li>
+			<li>Ruby Ecosystem</li>
+			<li>Web Frameworks</li>
+			<li>Ejemplos</li>
+			<li>Recursos</li>
+			<li>Eventos locales</li>
+        </ul>
+	</article>
+	
+	<article>
+		<h1>Características de Ruby</h1>
+	</article>
+	
+	<article>
+	
+		<q>
+          Ruby is designed for programmer happiness
+        </q>
+        <div class='author'>
+          matz
+        </div>
+		
+	</article>
+	
+	<article>
+		<h3>Multiplataforma</h3>
+
+		<ul>
+			<li>Linux</li>
+			<li>Mac OS</li>
+			<li>Windows</li>
+		</ul>
+
+	</article>
+	
+	<article>
+		<h3>Múltiples implementaciones</h3>
+
+		<ul>
+			<li>MRI: C</li>
+			<li>JRuby: Java</li>
+			<li>IronRuby: .NET</li>
+			<li>Rubinius: Ruby</li>
+		</ul>
+		
+		
+	</article>
+	
+	<article>
+		
+		<h3>Interpretado</h3>
+		
+		
+	</article>
+	
+	<article>
+		<h3>Dinámico</h3>
+
+		<pre>
+value = 42
+puts value # => 42
+value = "Hello, UNLaM!"
+puts value # => Hello, UNLaM!
+
+puts "hola".capitalize # => "Hola"
+		</pre>
+
+	</article>
+	
+	<article>
+		<h3>Orientado a Objetos</h3>
+		
+		<p>En Ruby todo es un objeto</p>
+
+		<pre>
+>> "fnoCybuR".reverse
+=> "RubyConf"
+
+a = ""
+4.times{ |i| a+= i.to_s  }
+puts a
+=> 0123
+		</pre>
+	</article>
+	
+	<article>
+		<h3>Pasaje de parámetros por nombre</h3>
+
+		<pre>
+Curso.find(:conditions => {:dia => Date.today }, :order => "id asc" )</pre>
+		
+		<br/><br/>
+		
+		<h3>Interacciones ágiles con bases de datos (SQL-Free)</h3>
+
+		<pre>University.find_by_name("UNLaM")</pre>
+	
+	</article>	
+	
+	<article>
+		<h3>Open source + Monkey Patching</h3>
+
+		<p>Código fuente de Ruby: <a href="https://github.com/ruby/ruby" target="_blank">https://github.com/ruby/ruby</a></p>
+
+		<pre>
+class String
+  def greet
+    "Hola #{self}!"
+  end
+end
+
+>> "UNLaM".greet
+=> "Hola UNLaM!"
+		</pre>
+	</article>
+	
+	<article>
+		<h3>Es muy expresivo</h3>
+		
+		<pre>
+10.times do
+  puts "u "
+end
+
+puts "Hello, UNLaM!" if Time.now.tuesday?
+
+(1..5).each do |i|
+  puts "El cuadrado de #{i} es #{i * i}"
+end
+		</pre>
+		
+	</article>
+	
+	<article>
+		<h3>Closure</h3>
+
+		<pre>
+user = "Foo Bar"
+10.times do
+  puts user
+end
+
+# Donde *user* es una variable que fue creada 
+# fuera del bloque y el bloque puede acceder a ella
+		</pre>
+		
+		<pre>
+vec = []
+(0..7).each { |n|
+  vec <<  n 
+}
+
+# n => NameError: undefined local variable or method ...
+# vec => [0, 1, 2, 3, 4, 5, 6, 7]			
+		</pre>
+		
+			
+	</article>
+	
+	
+	<article>
+		<h3>Lambda</h3>
+		
+		<pre>
+reverse_string_order = lambda {  |x, y|  y <=> x }
+[1, 20, 3].sort &reverse_string_order
+# => [20, 3, 1]
+
+square = lambda { |n| n * n }
+[1, 2, 3, 4, 5].map &square
+# => [1, 4, 9, 16, 25]
+		</pre>		
+		
+	</article>
+	
+	<article>
+		<h1>Instalar Ruby</h1>
+		
+	</article>
+	
+	<article>
+		<h3>Ruby.install!</h3>
+		<ul>
+			<li>Mac OS: Ya viene instalado</li>
+			<li>Linux: Ya instalado, o "apt-get install ruby irb ...."</li>
+		 	<li>Windows: <a href="http://rubyinstaller.org" target="_blank">rubyinstaller.org</a> o <a href="http://railsinstaller.org" target="_blank">railsinstaller.org</a></li>
+		</ul>
+	</article>
+	
+	<article>
+		<h3>Ruby.installed?</h3>
+		
+		<pre>
+conf$ ruby -v
+=> ruby 1.9..... 
+		</pre>
+
+		<h3>Interactive Ruby</h3>
+		
+		<pre>
+conf$ irb
+"hola mundo".split
+=> ["hola", "mundo"]
+		</pre>
+		
+	</article>
+
+	<article>
+		<h1>Probar Ruby online</h1>
+		<h2><a href="http://tryruby.org" target="_blank">http://tryruby.org</a></h2>
+	</article>
+	
+	<article>
+		<h1>Ruby Ecosystem</h1>
+		
+	</article>
+	
+	
+	<article>
+		<h3>Ruby Version Management</h3>
+		
+		<ul>
+			<li>rvm (Mac/Linux)</li>
+			<li>pik (Windows)</li>
+		</ul>
+		
+	</article>
+	<article>
+		<h3>Rake: Ruby Make</h3>
+
+		<pre>
+#Rakefile
+task :default => [:test]
+
+task :test do
+  ruby "test/unittest.rb"
+end
+
+#Bash
+rake test
+		</pre>
+		
+	</article>	
+		
+		
+	<article>
+		<h3>RubyGems: Distribución de paquetes</h3>
+
+		<br/>
+		<p>Librerías, o "gemas" de todo tipo</p>
+		<p>Sistema de repositorios símil Debian/Ubuntu</p>
+
+		<pre>
+#bash
+gem install 'twitter'
+		</pre>
+
+	</article>
+	
+	<article>
+		<h3>RubyGems: Ejemplo @Twitter</h3>
+
+		<pre>
+#irb
+> require 'twitter'
+=> true
+> Twitter.user_timeline("inkel").first.text
+=> "cerrando detalles de la charla de #Ruby para la UNLaM"
+		</pre>
+		
+	</article>
+	
+	<article>
+		<h3>Gems Más Usados</h3>
+
+		<ul>
+			<li>Sass</li>
+			<li>Capistrano</li>
+			<li>Haml</li>
+			<li>Capybara</li>
+			<li>Cucumber</li>
+			<li>Rails</li>
+		</ul>
+		
+		
+	</article>
+	
+	<article>
+		<h3>Git</h3>
+		<br/>
+
+		<p>SCM (Como SVN, CVS pero mejor!)</p>
+
+		<p>Proyectos en Git: Linux, Debian, Eclipse</p>
+		
+		<br/><br/><br/>
+		<img src="img/git.jpg" />
+		
+	</article>
+	
+	<article>
+		<h3>GitHub</h3>
+		<br/>
+
+		<p>Social Coding (Open Source Fun!)</p>
+
+		<p>Proyectos en GitHub: jQuery, Symfony, DJAngo, Linux Kernel</p>
+		
+		<br/><br/><br/>
+		<img src="img/github_logo.png" />
+		
+	</article>
+	
+
+	
+	<article>
+		<h3>Desktop Frameworks</h3>
+		
+		<ul>
+			<li>Shoes</li>
+			<li>FX Ruby</li>
+			<li>Ruby QT</li>
+		</ul>
+		
+	</article>
+	
+	<article>
+		<h3>Web Frameworks</h3>
+
+		<p>Objetivo principal: Más productividad</p>
+		
+	</article>
+	
+	<article>
+		<p>
+          <img class='centered' style='height: 500px' src='img/ruby_on_rails_logo.jpg' />
+        </p>
+
+		<h2>Ruby on Rails</h2>
+		<p><a href="http://rubyonrails.org" target="_blank">http://rubyonrails.org/</a></p>
+		
+	</article>
+	
+	<article>
+		<h3>Algunos features</h3>
+		
+		<ul class="build">
+			<li>MVC (Model - View - Controller)</li>
+			<li>"Convention Over Configuration"</li>
+			<li>"Don’t Repeat Yourself" (DRY)</li>
+			<li>ORM -> ActiveRecord</li>
+			<li>Database Migrations</li>
+			<li>Generadores</li>
+		</ul>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplos de empresas que usan Rails</h3>
+		
+		<ul>
+			<li>Basecamp</li>
+			<li>Twitter</li>
+			<li>Github</li>
+			<li>Groupon</li>
+			<li>Shopify</li>
+			<li>Yellow Pages</li>
+		</ul>
+
+		<!-- + ejemplos? + info? -->
+
+	</article>
+	
+	
+	<article>
+		<h1>Sinatra</h1>
+		
+		<br/>
+		<p><a href="http://www.sinatratb.com" target="_blank">http://www.sinatrarb.com/</a></p>
+
+	</article>
+	
+	<article>
+		<h3>Sinatra</h3>
+		<br/>
+		<p>
+			Minimalista. Simple.
+		</p>
+		<pre>
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+		</pre>
+	</article>
+	
+	<article>
+		<h3>Otros Frameworks</h3>
+
+		<ul>
+			<li>Cuba</li>
+			<li>Padrino</li>
+			<li>Otros más... (Sobre Rack)</li>
+		</ul>
+		
+	</article>
+	
+	
+	<article>
+	ejemplo de rails
+	
+	ejemplo de padrino
+	</article>
+	
+	
+	
+	<article>
+		<h3>Recursos</h3>
+
+		<ul>
+			<li><a href="http://tryruby.org" target="_blank">tryruby.org</a></li>
+			<li><a href="http://ruby-lang.org/es" target="_blank">ruby-lang.org/es/</a> -> "Ruby en 20 minutos"</li>
+			<li>Lista rubysur@googlegroups.com</li>
+			<li><a href="http://ruby.com.ar" target="_blank">ruby.com.ar</a> - @rubyargentina</li>
+			<li>Rails for Zombies -> <a href="http://railsforzombies.org" target="_blank">http://railsforzombies.org</a></li>
+		</ul>
+		
+		
+	</article>
+	
+	<article>
+		<h1>Eventos locales</h1>
+		
+	</article>
+	
+	<article>
+		<h1>Meetups (Mensuales)</h1>
+
+		<p>Se anuncian en www.ruby.com.ar</p>
+	</article>
+	
+	<article class='fill'>
+      <h3>
+        RubyConf Argentina 2011
+      </h3>
+      <iframe src='http://rubyconfargentina.org'></iframe>
+    </article>
+
+	
+	<article>
+		<h3>RubyConf Argentina 2011</h3>
+		<p>	8 y 9 de Noviembre - Ciudad Cultural Konex</p>
+
+		<p>Parte del "Tour Ruby Sur"</p>
+		
+		<br/><br/>
+		<img src="img/rubyconf_1.png" style="width:800px" />
+		
+		<br/><br/>
+		
+		<p> 6 de Noviembre - Ruby Fun Day</p>
+		
+	</article>
+	
+	<article>
+		<h3>Speakers</h3>
+
+		<ul>
+			<li>Shugo Maeda</li>
+			<li>Aaron Patterson</li>
+			<li>Konstantin Haase</li>
+			<li>Scott Chacon</li>
+			<li>Tom Preston-Werner</li>
+			<li>Luis Lavena</li>
+		</ul>
+		
+		<p>Y muchos más...</p>
+		
+	</article>
+	
+
+	<article>
+		<h1><a href="http://rubyconfargentina.org" target="_blank">http://rubyconfargentina.org</a></h1>
+		<h2>@rubyconfar</h2>
+		
+	</article>
+	
+	<article>
+		<h3>Ruby Argentina Asociación Civil</h3>
+		
+		<ul>
+			<li>Martín Aceto (@maceto)</li>
+			<li>Ernesto Tagwerker (@_nesto)</li>
+			<li>Leandro Lopez (@inkel)</li>
+			<li>Matías Owsianik (@matiasow)</li>
+			<li>Sebastián Rabuini (@sebasr)</li>
+			<li>Michel Martens (@soveran)</li>
+			<li>Lucas Florio (@lucasefe)</li>
+			<li>Chad DePue (@chaddepue)</li>
+			<li>Tom Henrik Aadland (@tomhenrik)</li>
+			<li>Nicolás Cerrini (@ceneon)</li>
+		</ul>
+		
+	</article>
+	
+	<article>
+		<h1>¿Preguntas?</h1>
+	</article>
+	
+	<article>
+		<h1>Gracias por venir</h1>
+
+		<h2>
+		http://ruby.com.ar<br/>
+		http://rubyconfargentina.org<br/>
+		@rubyconfar
+		</h2>
+	</article>
+
+    <article class='biglogo'>
+    </article>	
+
+
+    </section>
+
+  </body>
+</html>
