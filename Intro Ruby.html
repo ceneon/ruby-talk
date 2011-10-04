@@ -90,6 +90,7 @@
 			<li>¿Usan Java?</li>
 			<li>¿Usan .NET?</li>
 			<li>¿Usan PHP?</li>
+			<li>¿Usan Linux o Mac OS?</li>
 
 			<!-- ... otras?? -->
         </ul>
@@ -340,6 +341,23 @@ conf$ irb
       <iframe src='http://tryruby.org'></iframe>
     </article>
 
+
+	<article>
+		<h3>Editores / IDEs</h3>
+		
+		<ul>
+			<li>vi / emacs (Linux / Mac)</li>
+			<li>TextMate (Mac)</li>
+			<li>Sublime Text 2</li>
+			<li>Aptana (ex RadRails)</li>
+			<li>Redcar</li>
+			<li>...</li>
+		</ul>
+				
+		
+	</article>
+
+
 	<article>
 		<h1>Ruby Ecosystem</h1>
 
@@ -539,11 +557,131 @@ end
 
 
 	<article>
-	ejemplo de rails
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Paso 1: Crear la aplicación</p>
+		
+		<pre>
+$ rails new nombreAplicacion
+		</pre>
+		
+		<p>Paso 2: Configurar base de datos</p>
+		
+		<pre>
+/config/database.yml
+/Gemfile # => 'mysql2'
+		</pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Paso 3: Crear un "Scaffold" (andamios)</p>
+		<pre>
+$ rails generate scaffold alumno nombre:string dni:integer email:string
+		</pre>
+		
+		<p>Paso 4: Actualizar base de datos</p>
+		<pre>
+$ rake db:migrate
+		</pre>
+		<p><em style="font-size:20px">(Ver resultado en la BD)</em></p>
 
-	ejemplo de padrino
 	</article>
 
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Paso 5: Iniciar el servidor</p>
+		<pre>
+$ rails server
+		</pre>
+		
+		<p>
+			<a href="http://localhost:3000/alumnos" target="_blank">
+				http://localhost:3000/alumnos
+			</a>
+		</p>
+		
+		<p><em style="font-size:20px">(Ver model, controller y views)</em></p>
+
+		
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Validaciones del modelo</p>
+		<pre>
+/app/models/alumno.rb
+# validates_presence_of :nombre
+# validates_numericality_of :dni
+		</pre>
+			
+		<p>Localizar mensajes</p>
+		<pre>
+/config/environment.rb
+/config/locales/es.yml
+rails server
+		</pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Layouts</p>
+		<pre>
+/app/views/layouts/application.html.erb
+		</pre>
+		
+		<p>Form Helpers</p>
+		<pre>
+/app/views/alumnos/_form.html.erb
+		</pre>
+			
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+		
+		<p>Bonus: Poner una foto a los alumnos</p>
+		<pre>
+/Gemfile # => gem 'paperclip'
+$ bundle install
+
+$ rails g migration agregarFotoDeAlumnos
+ add_column :alumnos, :foto_file_name,    :string
+ add_column :alumnos, :foto_content_type, :string
+ add_column :alumnos, :foto_file_size,    :integer
+ add_column :alumnos, :foto_updated_at,   :datetime
+
+$ rake db:migrate
+
+/app/models/alumno.rb 
+ has_attached_file :foto, :styles => { :medium => "300x300>", :thumb => "128x128>" }
+ validates_attachment_content_type :foto, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
+		</pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br/>
+
+		<p>Bonus: Poner una foto a los alumnos</p>
+		<pre>
+/app/views/alumnos/_form.html.erb
+ form_for .... , :html => { :multipart => true }
+ f.file_field :foto 
+
+/app/views/alumnos/index.html.erb
+ image_tag alumno.foto.url(:thumb)
+		</pre>
+
+	</article>
 
 
 	<article>
