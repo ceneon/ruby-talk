@@ -216,6 +216,23 @@ end
 		</pre>
 	</article>
 
+  <article>
+    <h3>Introspección</h3>
+
+    <pre>
+class Person
+  attr_accessor :name, :age
+end
+
+Person.instance_methods
+# => "[:instance_eval, :pretty_inspect, :enum_for, :public_methods..."
+Person.instance_methods.grep(/^to_/).sort.reverse
+# => "[:to_yaml_properties, :to_yaml, :to_s, :to_enum]"
+Person.instance_methods false
+# => [:name, :name=, :age, :age=]
+    </pre>
+  </article>
+
 	<article>
 		<h3>Es muy expresivo</h3>
 
@@ -225,6 +242,8 @@ end
 end
 
 puts "Hello, UNLaM!" if Time.now.tuesday?
+
+Person.delete_all!
 
 (1..5).each do |i|
   puts "El cuadrado de #{i} es #{i * i}"
@@ -261,7 +280,6 @@ end
 
 
 	</article>
-
 
 	<article>
 		<h3>Lambda</h3>
