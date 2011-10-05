@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file://localhost/Users/nico/github/ruby-talk/Intro%20Ruby.html#1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Presentation</title>
+
+    <meta charset="utf-8">
+
+  <style type="text/css">
+
+    article.biglogo{ background-image:url(img/ruby_logo_2.png) !important; }
+/*	body#rubyslides{
+		background: #D7D7D7;
+		background: -o-radial-gradient(#F0534E, #E70000);
+		background: -moz-radial-gradient(#F0534E, #E70000);
+		background: -webkit-radial-gradient(#F0534E, #E70000);
+		background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(#F0938E), to(#E70000));
+	} */
+
+	.slides.template-default > article:not(.nobackground):not(.biglogo) { background-image:none !important; }
+
+  </style>
+
+   <script src="./Presentation_files/slides.js"></script>
+  <meta name="viewport" content="width=1100,height=750"><meta name="apple-mobile-web-app-capable" content="yes"></head>
+
+
+  <body style="display: none" id="rubyslides" class="loaded">
+
+    <section class="slides layout-regular template-default">
+
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+
+
+
+      <article class="biglogo current">
+      </article>
+
+      <article class="next">
+        <h1>
+          Introducción
+          <br>
+          a Ruby
+        </h1>
+        <p>
+          Ruby Argentina Asociación Civil
+          <br>
+          4 de Octubre de 2011
+        </p>
+      </article>
+
+	<article class="far-next">
+		<h2>¿Quiénes somos?</h2>
+	</article>
+
+	<article>
+		<h2>Ruby Argentina<br>
+			Asociación Civil</h2>
+	</article>
+
+	<article>
+		<h2>ルビ (Ruby)</h2>
+		<p>
+          <img class="centered" style="width:400px" src="./Presentation_files/ruby_logo_2.png">
+        </p>
+        <div class="source">
+
+        </div>
+	</article>
+
+	<article>
+		<h3>Preguntas</h3>
+
+        <ul class="build">
+			<li class="to-build">¿Quienes ya usaron Ruby?</li>
+			<li class="to-build">¿Quienes escucharon hablar de Rails?</li>
+			<li class="to-build">¿Usan Java?</li>
+			<li class="to-build">¿Usan .NET?</li>
+			<li class="to-build">¿Usan PHP?</li>
+			<li class="to-build">¿Usan Linux o Mac OS?</li>
+
+			<!-- ... otras?? -->
+        </ul>
+	</article>
+
+	<article>
+		<h3>Agenda</h3>
+
+        <ul class="build">
+			<li class="to-build">Características de Ruby</li>
+			<li class="to-build">Instalar Ruby</li>
+			<li class="to-build">Ruby Ecosystem</li>
+			<li class="to-build">Web Frameworks</li>
+			<li class="to-build">Ejemplos</li>
+			<li class="to-build">Recursos</li>
+			<li class="to-build">Eventos locales</li>
+        </ul>
+	</article>
+
+	<article>
+		<h1>Características de Ruby</h1>
+	</article>
+
+	<article>
+
+		<q>
+          Ruby is designed for programmer happiness
+        </q>
+        <div class="author">
+          matz
+        </div>
+
+	</article>
+
+	<article>
+		<h3>Multiplataforma</h3>
+
+		<ul>
+			<li>Linux</li>
+			<li>Mac OS</li>
+			<li>Windows</li>
+		</ul>
+
+	</article>
+
+	<article>
+		<h3>Múltiples implementaciones</h3>
+
+		<ul>
+			<li>MRI: C</li>
+			<li>JRuby: Java</li>
+			<li>IronRuby: .NET</li>
+			<li>Rubinius: Ruby</li>
+		</ul>
+
+
+	</article>
+
+	<article>
+
+		<h3>Interpretado</h3>
+
+
+	</article>
+
+	<article>
+		<h3>Dinámico</h3>
+
+		<pre class="prettyprint"><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">42</span><span class="pln">
+puts value </span><span class="com"># =&gt; 42</span><span class="pln">
+value </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello, UNLaM!"</span><span class="pln">
+puts value </span><span class="com"># =&gt; Hello, UNLaM!</span><span class="pln">
+
+puts </span><span class="str">"hola"</span><span class="pun">.</span><span class="pln">capitalize </span><span class="com"># =&gt; "Hola"</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h3>Orientado a Objetos</h3>
+
+		<p>En Ruby todo es un objeto</p>
+
+		<pre class="prettyprint"><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="str">"fnoCybuR"</span><span class="pun">.</span><span class="pln">reverse
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"RubyConf"</span><span class="pln">
+
+a </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+</span><span class="lit">4.times</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">|</span><span class="pln">i</span><span class="pun">|</span><span class="pln"> a</span><span class="pun">+=</span><span class="pln"> i</span><span class="pun">.</span><span class="pln">to_s  </span><span class="pun">}</span><span class="pln">
+puts a
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="lit">0123</span><span class="pln">
+		</span></pre>
+	</article>
+
+	<article>
+		<h3>Pasaje de parámetros por nombre</h3>
+
+		<pre class="prettyprint"><span class="typ">Curso</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(:</span><span class="pln">conditions </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{:</span><span class="pln">dia </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">.</span><span class="pln">today </span><span class="pun">},</span><span class="pln"> </span><span class="pun">:</span><span class="pln">order </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"id asc"</span><span class="pln"> </span><span class="pun">)</span></pre>
+
+		<br><br>
+
+		<h3>Interacciones ágiles con bases de datos (SQL-Free)</h3>
+
+		<pre class="prettyprint"><span class="typ">University</span><span class="pun">.</span><span class="pln">find_by_name</span><span class="pun">(</span><span class="str">"UNLaM"</span><span class="pun">)</span></pre>
+
+	</article>
+
+	<article>
+		<h3>Open source + Monkey Patching</h3>
+
+		<p>Código fuente de Ruby: <a href="https://github.com/ruby/ruby" target="_blank">https://github.com/ruby/ruby</a></p>
+
+		<pre class="prettyprint"><span class="kwd">class</span><span class="pln"> </span><span class="typ">String</span><span class="pln">
+  </span><span class="kwd">def</span><span class="pln"> greet
+    </span><span class="str">"Hola #{self}!"</span><span class="pln">
+  </span><span class="kwd">end</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="str">"UNLaM"</span><span class="pun">.</span><span class="pln">greet
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Hola UNLaM!"</span><span class="pln">
+		</span></pre>
+	</article>
+
+  <article>
+    <h3>Introspección</h3>
+
+    <pre class="prettyprint"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Person</span><span class="pln">
+  attr_accessor </span><span class="pun">:</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">age
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="typ">Person</span><span class="pun">.</span><span class="pln">instance_methods
+</span><span class="com"># =&gt; "[:instance_eval, :pretty_inspect, :enum_for, :public_methods..."</span><span class="pln">
+</span><span class="typ">Person</span><span class="pun">.</span><span class="pln">instance_methods</span><span class="pun">.</span><span class="pln">grep</span><span class="pun">(</span><span class="str">/^to_/</span><span class="pun">).</span><span class="pln">sort</span><span class="pun">.</span><span class="pln">reverse
+</span><span class="com"># =&gt; "[:to_yaml_properties, :to_yaml, :to_s, :to_enum]"</span><span class="pln">
+</span><span class="typ">Person</span><span class="pun">.</span><span class="pln">instance_methods </span><span class="kwd">false</span><span class="pln">
+</span><span class="com"># =&gt; [:name, :name=, :age, :age=]</span><span class="pln">
+    </span></pre>
+  </article>
+
+	<article>
+		<h3>Es muy expresivo</h3>
+
+		<pre class="prettyprint"><span class="lit">10.times</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+  puts </span><span class="str">"u "</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+
+puts </span><span class="str">"Hello, UNLaM!"</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="typ">Time</span><span class="pun">.</span><span class="pln">now</span><span class="pun">.</span><span class="pln">tuesday</span><span class="pun">?</span><span class="pln">
+
+</span><span class="typ">Person</span><span class="pun">.</span><span class="pln">delete_all</span><span class="pun">!</span><span class="pln">
+
+</span><span class="pun">(</span><span class="lit">1.</span><span class="pun">.</span><span class="lit">5</span><span class="pun">).</span><span class="pln">each </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">|</span><span class="pln">i</span><span class="pun">|</span><span class="pln">
+  puts </span><span class="str">"El cuadrado de #{i} es #{i * i}"</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="lit">1_000_000.times</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+  </span><span class="com"># This is going to take a while</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h3>Closure</h3>
+
+		<pre class="prettyprint"><span class="pln">user </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Foo Bar"</span><span class="pln">
+</span><span class="lit">10.times</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+  puts user
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="com"># Donde *user* es una variable que fue creada</span><span class="pln">
+</span><span class="com"># fuera del bloque y el bloque puede acceder a ella</span><span class="pln">
+		</span></pre>
+
+		<pre class="prettyprint"><span class="pln">vec </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+</span><span class="pun">(</span><span class="lit">0.</span><span class="pun">.</span><span class="lit">7</span><span class="pun">).</span><span class="pln">each </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">|</span><span class="pln">n</span><span class="pun">|</span><span class="pln">
+  vec </span><span class="pun">&lt;&lt;</span><span class="pln">  n
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="com"># vec =&gt; [0, 1, 2, 3, 4, 5, 6, 7]</span><span class="pln">
+		</span></pre>
+
+
+	</article>
+
+	<article>
+		<h3>Lambda</h3>
+
+		<pre class="prettyprint"><span class="pln">reverse_string_order </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">lambda</span><span class="pln"> </span><span class="pun">{</span><span class="pln">  </span><span class="pun">|</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">|</span><span class="pln">  y </span><span class="pun">&lt;=&gt;</span><span class="pln"> x </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">].</span><span class="pln">sort </span><span class="pun">&amp;</span><span class="pln">reverse_string_order
+</span><span class="com"># =&gt; [20, 3, 1]</span><span class="pln">
+
+square </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">lambda</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">|</span><span class="pln">n</span><span class="pun">|</span><span class="pln"> n </span><span class="pun">*</span><span class="pln"> n </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">].</span><span class="pln">map </span><span class="pun">&amp;</span><span class="pln">square
+</span><span class="com"># =&gt; [1, 4, 9, 16, 25]</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h1>Instalar Ruby</h1>
+
+	</article>
+
+	<article>
+		<h3>Ruby.install!</h3>
+		<ul>
+			<li>Mac OS: Ya viene instalado</li>
+			<li>Linux: Ya instalado, o "apt-get install ruby irb ...."</li>
+		 	<li>Windows: <a href="http://rubyinstaller.org/" target="_blank">rubyinstaller.org</a> o <a href="http://railsinstaller.org/" target="_blank">railsinstaller.org</a></li>
+		</ul>
+	</article>
+
+	<article>
+		<h3>Ruby.installed?</h3>
+
+		<pre class="prettyprint"><span class="pln">conf$ ruby </span><span class="pun">-</span><span class="pln">v
+</span><span class="pun">=&gt;</span><span class="pln"> ruby </span><span class="lit">1.9</span><span class="pun">.....</span><span class="pln">
+		</span></pre>
+
+		<h3>Interactive Ruby</h3>
+
+		<pre class="prettyprint"><span class="pln">conf$ irb
+</span><span class="str">"hola mundo"</span><span class="pun">.</span><span class="pln">split
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">[</span><span class="str">"hola"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"mundo"</span><span class="pun">]</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h1>Probar Ruby online</h1>
+		<h2><a href="http://tryruby.org/" target="_blank">http://tryruby.org</a></h2>
+	</article>
+	
+	<article class="fill">
+      <h3>
+        TryRuby.org
+      </h3>
+      <iframe src="about:blank"></iframe>
+    </article>
+
+
+	<article>
+		<h3>Editores / IDEs</h3>
+		
+		<ul>
+			<li>vi / emacs (Linux / Mac)</li>
+			<li>TextMate (Mac)</li>
+			<li>Sublime Text 2</li>
+			<li>Aptana (ex RadRails)</li>
+			<li>Redcar</li>
+			<li>...</li>
+		</ul>
+				
+		
+	</article>
+
+
+	<article>
+		<h1>Ruby Ecosystem</h1>
+
+	</article>
+
+
+	<article>
+		<h3>Ruby Version Management</h3>
+
+		<ul>
+			<li>rvm (Mac/Linux)</li>
+			<li>pik (Windows)</li>
+		</ul>
+
+	</article>
+	<article>
+		<h3>Rake: Ruby Make</h3>
+
+		<pre class="prettyprint"><span class="com"># Rakefile</span><span class="pln">
+task </span><span class="pun">:</span><span class="kwd">default</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">[:</span><span class="pln">test</span><span class="pun">]</span><span class="pln">
+
+desc </span><span class="str">"Run unit tests"</span><span class="pln">
+task </span><span class="pun">:</span><span class="pln">test </span><span class="kwd">do</span><span class="pln">
+  ruby </span><span class="str">"test/unittest.rb"</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+
+</span><span class="com"># Bash</span><span class="pln">
+rake test
+		</span></pre>
+
+	</article>
+
+
+	<article>
+		<h3>RubyGems: Distribución de paquetes</h3>
+
+		<br>
+		<p>Librerías, o "gemas" de todo tipo</p>
+		<p>Sistema de repositorios símil Debian/Ubuntu</p>
+
+		<pre class="prettyprint"><span class="com"># Bash</span><span class="pln">
+gem install </span><span class="str">'twitter'</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h3>RubyGems: Ejemplo @Twitter</h3>
+
+		<pre class="prettyprint"><span class="com"># irb</span><span class="pln">
+</span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">require</span><span class="pln"> </span><span class="str">'twitter'</span><span class="pln">
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Twitter</span><span class="pun">.</span><span class="pln">user_timeline</span><span class="pun">(</span><span class="str">"inkel"</span><span class="pun">).</span><span class="pln">first</span><span class="pun">.</span><span class="pln">text
+</span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"cerrando detalles de la charla de #Ruby para la UNLaM"</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+	<article>
+		<h3>Gems Más Usados</h3>
+
+		<ul>
+			<li>Sass</li>
+			<li>Capistrano</li>
+			<li>Haml</li>
+			<li>Capybara</li>
+			<li>Cucumber</li>
+			<li>Rails</li>
+		</ul>
+
+
+	</article>
+
+	<article>
+		<h3>Git</h3>
+		<br>
+
+		<p>SCM (Como SVN, CVS pero mejor!)</p>
+
+		<p>Proyectos en Git: Linux, Debian, Eclipse</p>
+
+		<br><br><br>
+		<img src="./Presentation_files/git.jpg">
+
+	</article>
+
+	<article>
+		<h3>GitHub</h3>
+		<br>
+
+		<p>Social Coding (Open Source Fun!)</p>
+
+		<p>Proyectos en GitHub: jQuery, Symfony, DJAngo, Linux Kernel</p>
+
+		<br><br><br>
+		<img src="./Presentation_files/github_logo.png">
+
+	</article>
+
+
+
+	<article>
+		<h3>Desktop Frameworks</h3>
+
+		<ul>
+			<li>Shoes</li>
+			<li>FX Ruby</li>
+			<li>Ruby QT</li>
+		</ul>
+
+	</article>
+
+	<article>
+		<h3>Web Frameworks</h3>
+
+		<p>Objetivo principal: Más productividad</p>
+
+	</article>
+
+	<article>
+		<p>
+          <img class="centered" style="height: 500px" src="./Presentation_files/ruby_on_rails_logo.jpg">
+        </p>
+
+		<h2>Ruby on Rails</h2>
+		<p><a href="http://rubyonrails.org/" target="_blank">http://rubyonrails.org/</a></p>
+
+	</article>
+
+	<article>
+		<h3>Algunos features</h3>
+
+		<ul class="build">
+			<li class="to-build">MVC (Model - View - Controller)</li>
+			<li class="to-build">"Convention Over Configuration"</li>
+			<li class="to-build">"Don’t Repeat Yourself" (DRY)</li>
+			<li class="to-build">ORM -&gt; ActiveRecord</li>
+			<li class="to-build">Database Migrations</li>
+			<li class="to-build">Generadores</li>
+		</ul>
+
+	</article>
+
+	<article>
+		<h3>Ejemplos de empresas que usan Rails</h3>
+
+		<ul>
+			<li>Basecamp</li>
+			<li>Twitter</li>
+			<li>Github</li>
+			<li>Groupon</li>
+			<li>Shopify</li>
+			<li>Yellow Pages</li>
+		</ul>
+
+		<!-- + ejemplos? + info? -->
+
+	</article>
+
+
+	<article>
+		<h1>Sinatra</h1>
+
+		<br>
+		<p><a href="http://www.sinatratb.com/" target="_blank">http://www.sinatrarb.com/</a></p>
+
+	</article>
+
+	<article>
+		<h3>Sinatra</h3>
+		<br>
+		<p>
+			Minimalista. Simple.
+		</p>
+		<pre class="prettyprint"><span class="kwd">require</span><span class="pln"> </span><span class="str">'sinatra'</span><span class="pln">
+
+</span><span class="kwd">get</span><span class="pln"> </span><span class="str">'/hi'</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+  </span><span class="str">"Hello World!"</span><span class="pln">
+</span><span class="kwd">end</span><span class="pln">
+		</span></pre>
+	</article>
+
+	<article>
+		<h3>Otros Frameworks</h3>
+
+		<ul>
+			<li>Cuba</li>
+			<li>Padrino</li>
+			<li>Otros más... (Sobre Rack)</li>
+		</ul>
+
+	</article>
+
+
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Paso 1: Crear la aplicación</p>
+		
+		<pre class="prettyprint"><span class="pln">$ rails </span><span class="kwd">new</span><span class="pln"> nombreAplicacion
+		</span></pre>
+		
+		<p>Paso 2: Configurar base de datos</p>
+		
+		<pre class="prettyprint"><span class="str">/config/</span><span class="pln">database</span><span class="pun">.</span><span class="pln">yml
+</span><span class="pun">/</span><span class="typ">Gemfile</span><span class="pln"> </span><span class="com"># =&gt; 'mysql2'</span><span class="pln">
+		</span></pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Paso 3: Crear un "Scaffold" (andamios)</p>
+		<pre class="prettyprint"><span class="pln">$ rails generate scaffold alumno nombre</span><span class="pun">:</span><span class="kwd">string</span><span class="pln"> dni</span><span class="pun">:</span><span class="pln">integer email</span><span class="pun">:</span><span class="kwd">string</span><span class="pln">
+		</span></pre>
+		
+		<p>Paso 4: Actualizar base de datos</p>
+		<pre class="prettyprint"><span class="pln">$ rake db</span><span class="pun">:</span><span class="pln">migrate
+		</span></pre>
+		<p><em style="font-size:20px">(Ver resultado en la BD)</em></p>
+
+	</article>
+
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Paso 5: Iniciar el servidor</p>
+		<pre class="prettyprint"><span class="pln">$ rails server
+		</span></pre>
+		
+		<p>
+			<a href="http://localhost:3000/alumnos" target="_blank">
+				http://localhost:3000/alumnos
+			</a>
+		</p>
+		
+		<p><em style="font-size:20px">(Ver model, controller y views)</em></p>
+
+		
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Validaciones del modelo</p>
+		<pre class="prettyprint"><span class="str">/app/</span><span class="pln">models</span><span class="pun">/</span><span class="pln">alumno</span><span class="pun">.</span><span class="pln">rb
+</span><span class="com"># validates_presence_of :nombre</span><span class="pln">
+</span><span class="com"># validates_numericality_of :dni</span><span class="pln">
+		</span></pre>
+			
+		<p>Localizar mensajes</p>
+		<pre class="prettyprint"><span class="str">/config/</span><span class="pln">environment</span><span class="pun">.</span><span class="pln">rb
+</span><span class="pun">/</span><span class="pln">config</span><span class="pun">/</span><span class="pln">locales</span><span class="pun">/</span><span class="pln">es</span><span class="pun">.</span><span class="pln">yml
+rails server
+		</span></pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Layouts</p>
+		<pre class="prettyprint"><span class="str">/app/</span><span class="pln">views</span><span class="pun">/</span><span class="pln">layouts</span><span class="pun">/</span><span class="pln">application</span><span class="pun">.</span><span class="pln">html</span><span class="pun">.</span><span class="pln">erb
+		</span></pre>
+		
+		<p>Form Helpers</p>
+		<pre class="prettyprint"><span class="str">/app/</span><span class="pln">views</span><span class="pun">/</span><span class="pln">alumnos</span><span class="pun">/</span><span class="pln">_form</span><span class="pun">.</span><span class="pln">html</span><span class="pun">.</span><span class="pln">erb
+		</span></pre>
+			
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+		
+		<p>Bonus: Poner una foto a los alumnos</p>
+		<pre class="prettyprint"><span class="str">/Gemfile # =&gt; gem 'paperclip'
+$ bundle install
+
+$ rails g migration agregarFotoDeAlumnos
+ add_column :alumnos, :foto_file_name,    :string
+ add_column :alumnos, :foto_content_type, :string
+ add_column :alumnos, :foto_file_size,    :integer
+ add_column :alumnos, :foto_updated_at,   :datetime
+
+$ rake db:migrate
+
+/</span><span class="pln">app</span><span class="pun">/</span><span class="pln">models</span><span class="pun">/</span><span class="pln">alumno</span><span class="pun">.</span><span class="pln">rb 
+ has_attached_file </span><span class="pun">:</span><span class="pln">foto</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">styles </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">:</span><span class="pln">medium </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"300x300&gt;"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">thumb </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"128x128&gt;"</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+ validates_attachment_content_type </span><span class="pun">:</span><span class="pln">foto</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">content_type</span><span class="pun">=&gt;[</span><span class="str">'image/jpeg'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'image/png'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'image/gif'</span><span class="pun">]</span><span class="pln"> 
+		</span></pre>
+		
+	</article>
+	
+	<article>
+		<h3>Ejemplo - Rails</h3><br>
+
+		<p>Bonus: Poner una foto a los alumnos</p>
+		<pre class="prettyprint"><span class="str">/app/</span><span class="pln">views</span><span class="pun">/</span><span class="pln">alumnos</span><span class="pun">/</span><span class="pln">_form</span><span class="pun">.</span><span class="pln">html</span><span class="pun">.</span><span class="pln">erb
+ form_for </span><span class="pun">....</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">html </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">:</span><span class="pln">multipart </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+ f</span><span class="pun">.</span><span class="pln">file_field </span><span class="pun">:</span><span class="pln">foto 
+
+</span><span class="pun">/</span><span class="pln">app</span><span class="pun">/</span><span class="pln">views</span><span class="pun">/</span><span class="pln">alumnos</span><span class="pun">/</span><span class="pln">index</span><span class="pun">.</span><span class="pln">html</span><span class="pun">.</span><span class="pln">erb
+ image_tag alumno</span><span class="pun">.</span><span class="pln">foto</span><span class="pun">.</span><span class="pln">url</span><span class="pun">(:</span><span class="pln">thumb</span><span class="pun">)</span><span class="pln">
+		</span></pre>
+
+	</article>
+
+
+	<article>
+		<h3>Recursos</h3>
+
+		<ul>
+			<li><a href="http://tryruby.org/" target="_blank">tryruby.org</a></li>
+			<li><a href="http://ruby-lang.org/es" target="_blank">ruby-lang.org/es/</a> -&gt; "Ruby en 20 minutos"</li>
+			<li>Lista rubysur@googlegroups.com</li>
+			<li><a href="http://ruby.com.ar/" target="_blank">ruby.com.ar</a> - @rubyargentina</li>
+			<li>Rails for Zombies -&gt; <a href="http://railsforzombies.org/" target="_blank">http://railsforzombies.org</a></li>
+			<li>Railscasts -&gt; <a href="http://railscasts.com/" target="_blank">http://railscasts.com</a></li>
+			<li>"Agile Web Development with Rails" - Dave THomas - 4º Ed.</li>
+		</ul>
+
+
+	</article>
+
+	<article>
+		<h1>Eventos locales</h1>
+
+	</article>
+
+	<article>
+		<h1>Meetups (Mensuales)</h1>
+
+		<p>Se anuncian en www.ruby.com.ar</p>
+	</article>
+
+	<article class="fill">
+      <h3>
+        RubyConf Argentina 2011
+      </h3>
+      <iframe src="about:blank"></iframe>
+    </article>
+
+
+	<article>
+		<h3>RubyConf Argentina 2011</h3>
+		<p>	8 y 9 de Noviembre - Ciudad Cultural Konex</p>
+
+		<p>Parte del "Tour Ruby Sur"</p>
+
+		<br><br>
+		<img src="./Presentation_files/rubyconf_1.png" style="width:800px">
+
+		<br><br>
+
+		<p> 6 de Noviembre - Ruby Fun Day</p>
+
+	</article>
+
+	<article>
+		<h3>Speakers</h3>
+
+		<ul>
+			<li>Shugo Maeda</li>
+			<li>Aaron Patterson</li>
+			<li>Konstantin Haase</li>
+			<li>Scott Chacon</li>
+			<li>Tom Preston-Werner</li>
+			<li>Luis Lavena</li>
+		</ul>
+
+		<p>Y muchos más...</p>
+
+	</article>
+
+
+	<article>
+		<h1><a href="http://rubyconfargentina.org/" target="_blank">http://rubyconfargentina.org</a></h1>
+		<h2>@rubyconfar</h2>
+
+	</article>
+
+	<article>
+		<h3>Ruby Argentina Asociación Civil</h3>
+
+		<ul>
+			<li>Martín Aceto (<a href="https://twitter.com/maceto">@maceto</a>)</li>
+			<li>Ernesto Tagwerker (<a href="https://twitter.com/_nesto">@_nesto</a>)</li>
+			<li>Leandro López (<a href="https://twitter.com/inkel">@inkel</a>)</li>
+			<li>Matías Owsianik (<a href="https://twitter.com/matiasow">@matiasow</a>)</li>
+			<li>Sebastián Rabuini (<a href="https://twitter.com/sebasr">@sebasr</a>)</li>
+			<li>Michel Martens (<a href="https://twitter.com/soveran">@soveran</a>)</li>
+			<li>Lucas Florio (<a href="https://twitter.com/lucasefe">@lucasefe</a>)</li>
+			<li>Chad DePue (<a href="https://twitter.com/chaddepue">@chaddepue</a>)</li>
+			<li>Tom Henrik Aadland (<a href="https://twitter.com/tomhenrik">@tomhenrik</a>)</li>
+			<li>Nicolás Cerrini (<a href="https://twitter.com/ceneon">@ceneon</a>)</li>
+		</ul>
+
+	</article>
+
+	<article>
+		<h1>¿Preguntas?</h1>
+	</article>
+
+	<article>
+		<h1>Gracias por venir</h1>
+
+		<h2>
+		<a href="http://ruby.com.ar/">ruby.com.ar</a><br>
+		<a href="http://rubyconfargentina.org/">rubyconfargentina.org</a><br>
+		<a href="https://twitter.com/rubyconfar"></a><a href="https://twitter.com/rubyconfar">@rubyconfar</a>
+		</h2>
+	</article>
+
+    <article class="biglogo">
+    </article>
+
+
+    <div class="slide-area" id="prev-slide-area"></div><div class="slide-area" id="next-slide-area"></div></section>
+
+  
+
+<link rel="stylesheet" type="text/css" href="./Presentation_files/css"><link rel="stylesheet" type="text/css" href="./Presentation_files/styles.css"><script type="text/javascript" src="./Presentation_files/prettify.js"></script></body></html>
