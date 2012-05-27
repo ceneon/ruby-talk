@@ -181,8 +181,8 @@
 		<pre>
 value = 42
 puts value # => 42
-value = "Hello, UNLaM!"
-puts value # => Hello, UNLaM!
+value = "Hola UNTreF!"
+puts value # => Hola UNTreF!
 
 puts "hola".capitalize # => "Hola"
 		</pre>
@@ -215,7 +215,7 @@ Curso.find(:conditions => {:dia => Date.today }, :order => "id asc" )</pre>
 
 		<h3>Interacciones ágiles con bases de datos (SQL-Free)</h3>
 
-		<pre>University.find_by_name("UNLaM")</pre>
+		<pre>University.find_by_name("UNTreF")</pre>
 
 	</article>
 
@@ -231,8 +231,8 @@ class String
   end
 end
 
->> "UNLaM".greet
-=> "Hola UNLaM!"
+>> "UNTreF".greet
+=> "Hola UNTreF!"
 		</pre>
 	</article>
 
@@ -261,7 +261,7 @@ Person.instance_methods false
   puts "u "
 end
 
-puts "Hello, UNLaM!" if Time.now.tuesday?
+puts "Hola UNTreF!" if Time.now.tuesday?
 
 Person.delete_all!
 
@@ -433,7 +433,7 @@ gem install 'twitter'
 > require 'twitter'
 => true
 > Twitter.user_timeline("inkel").first.text
-=> "cerrando detalles de la charla de #Ruby para la UNLaM"
+=> "cerrando detalles de la charla de #Ruby para la UNTreF"
 		</pre>
 
 	</article>
@@ -707,13 +707,14 @@ $ rake db:migrate
 		<h3>Recursos</h3>
 
 		<ul>
+			<li>Slides: <a href="https://github.com/ceneon/ruby-talk/">github.com/ceneon/ruby-talk</a></li>
 			<li><a href="http://tryruby.org" target="_blank">tryruby.org</a></li>
 			<li><a href="http://ruby-lang.org/es" target="_blank">ruby-lang.org/es/</a> -> "Ruby en 20 minutos"</li>
 			<li>Lista rubysur@googlegroups.com</li>
 			<li><a href="http://ruby.com.ar" target="_blank">ruby.com.ar</a> - @rubyargentina</li>
-			<li>Rails for Zombies -> <a href="http://railsforzombies.org" target="_blank">http://railsforzombies.org</a></li>
-			<li>Railscasts -> <a href="http://railscasts.com" target="_blank">http://railscasts.com</a></li>
-			<li>Asciicasts -> <a href="http://asciicasts.com" target="_blank">http://asciicasts.com</a></li>
+			<li>Rails for Zombies -> <a href="http://railsforzombies.org" target="_blank">railsforzombies.org</a></li>
+			<li>Railscasts -> <a href="http://railscasts.com" target="_blank">railscasts.com</a></li>
+			<li>Asciicasts -> <a href="http://asciicasts.com" target="_blank">asciicasts.com</a></li>
 			<li>"Agile Web Development with Rails" - Dave Thomas - 4º Ed.</li>
 		</ul>
 
