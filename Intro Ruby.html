@@ -234,16 +234,40 @@ nil.class
       </article>
 
       <article>
+        <h3>Arrays</h3>
+        <pre class="big">
+nums  = [1, 2, 3, 4, 5]
+names = [ "ceneon", "inkel" ]
+meses = %w{ enero febrero marzo abril mayo ... }
+        </pre>
+        <h3>Hashes</h3>
+        <pre class="big">
+meses = { :enero => 31, :febrero => 28 }
+meses[:enero] # => 31
+counter = Hash.new { |hash, key| hash[key] = 0 }
+counter[:a] # => 0
+counter[:b] += 1 # => 1
+        </pre>
+      </article>
+
+      <article>
         <h3>Pasaje de parámetros por nombre</h3>
 
         <pre>
 Curso.find(:conditions => {:dia => Date.today }, :order => "id asc" )</pre>
 
-        <br/><br/>
+        <i class="build">En realidad es medio una mentira eso ;)</i>
 
-        <h3>Interacciones ágiles con bases de datos (SQL-Free)</h3>
+        <h3><i>Splats</i></h3>
 
-        <pre>University.find_by_name("UNTreF")</pre>
+        <pre class="big">
+def splats(*args)
+  p [ args.length, args ]
+end
+
+splats "ceneon" # => [1, ["ceneon"]]
+splats "ceneon", "inkel" # => [2, ["ceneon", "inkel"]]
+        </pre>
 
       </article>
 
