@@ -224,8 +224,7 @@ a = ""
 nil.nil?
 # => true
 nil.class
-# => NilClass
-        </pre>
+# => NilClass</pre>
 
         <div class="build" style="position:absolute; top: 250px; right:30px">
           <img src="img/wtfcat.jpg" />
@@ -244,7 +243,7 @@ meses = %w{ enero febrero marzo abril mayo ... }
         <pre class="big">
 meses = { :enero => 31, :febrero => 28 }
 meses[:enero] # => 31
-counter = Hash.new { |hash, key| hash[key] = 0 }
+counter = Hash.new { |h, k| h[k] = 0 }
 counter[:a] # => 0
 counter[:b] += 1 # => 1
         </pre>
@@ -256,8 +255,6 @@ counter[:b] += 1 # => 1
         <pre>
 Curso.find(:conditions => {:dia => Date.today }, :order => "id asc" )</pre>
 
-        <i class="build">En realidad es medio una mentira eso ;)</i>
-
         <h3><i>Splats</i></h3>
 
         <pre class="big">
@@ -265,9 +262,10 @@ def splats(*args)
   p [ args.length, args ]
 end
 
-splats "ceneon" # => [1, ["ceneon"]]
-splats "ceneon", "inkel" # => [2, ["ceneon", "inkel"]]
-        </pre>
+splats "ceneon"
+# => [1, ["ceneon"]]
+splats "ceneon", "inkel"
+# => [2, ["ceneon", "inkel"]]</pre>
 
       </article>
 
@@ -329,8 +327,7 @@ end
 
 1_000_000.times do
   # Algo que se hará muchas veces
-end
-        </pre>
+end</pre>
 
       </article>
 
