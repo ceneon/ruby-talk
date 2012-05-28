@@ -33,6 +33,8 @@
 		background-repeat:no-repeat;
 	} 
 
+	pre.big{ font-size:30px; line-height:38px; }
+
 
 	.slides.template-default > article:not(.nobackground):not(.biglogo) { background-image:none !important; }
 
@@ -89,7 +91,7 @@
 	</article>
 
 	<article>
-		<h3>Preguntas</h3>
+		<h3>Preguntas al público</h3>
 
         <ul class="build">
 			<li>¿Usaron Rails?</li>
@@ -153,9 +155,8 @@
 			<li>Windows</li>
 		</ul>
 
-	</article>
+		<br/>
 
-	<article>
 		<h3>Múltiples implementaciones</h3>
 
 		<ul>
@@ -165,20 +166,27 @@
 			<li>Rubinius: Ruby</li>
 		</ul>
 
-
 	</article>
 
 	<article>
 
 		<h3>Interpretado</h3>
 
+		<br/><br/>
+
+		<div class="build">
+
+			<p><img src="img/compiler.jpg" /></p>
+
+		</div>
 
 	</article>
 
 	<article>
+			
 		<h3>Dinámico</h3>
 
-		<pre>
+		<pre class="big">
 value = 42
 puts value # => 42
 value = "Hola UNTreF!"
@@ -189,17 +197,19 @@ puts "hola".capitalize # => "Hola"
 
 	</article>
 
+
 	<article>
-		<h3>Orientado a Objetos</h3>
+		<h3>En Ruby todo es un objeto</h3>
 
-		<p>En Ruby todo es un objeto</p>
 
-		<pre>
+		<pre class="big">
 >> "fnoCybuR".reverse
 => "RubyConf"
 
+
 a = ""
 4.times { |i| a+= i.to_s  }
+
 puts a
 => 0123
 		</pre>
@@ -224,7 +234,7 @@ Curso.find(:conditions => {:dia => Date.today }, :order => "id asc" )</pre>
 
 		<p>Código fuente de Ruby: <a href="https://github.com/ruby/ruby" target="_blank">https://github.com/ruby/ruby</a></p>
 
-		<pre>
+		<pre class="big">
 class String
   def greet
     "Hola #{self}!"
@@ -234,20 +244,26 @@ end
 >> "UNTreF".greet
 => "Hola UNTreF!"
 		</pre>
+
+		<div class="build" style="position:absolute; top: 200px; left: 540px">
+			<img src="img/monkey.jpg" style="width:350px" />
+		</div>
 	</article>
 
   <article>
     <h3>Introspección</h3>
 
-    <pre>
+    <pre class="big">
 class Person
   attr_accessor :name, :age
 end
 
 Person.instance_methods
 # => "[:instance_eval, :pretty_inspect, :enum_for, :public_methods..."
+
 Person.instance_methods.grep(/^to_/).sort.reverse
 # => "[:to_yaml_properties, :to_yaml, :to_s, :to_enum]"
+
 Person.instance_methods false
 # => [:name, :name=, :age, :age=]
     </pre>
@@ -256,12 +272,12 @@ Person.instance_methods false
 	<article>
 		<h3>Es muy expresivo</h3>
 
-		<pre>
+		<pre class="big">
 10.times do
   puts "u "
 end
 
-puts "Hola UNTreF!" if Time.now.tuesday?
+puts "Hoy es la charla!" if Time.now.tuesday?
 
 Person.delete_all!
 
@@ -270,7 +286,7 @@ Person.delete_all!
 end
 
 1_000_000.times do
-  # This is going to take a while
+  # Algo que se hará muchas veces
 end
 		</pre>
 
@@ -324,8 +340,8 @@ square = lambda { |n| n * n }
 	<article>
 		<h3>Ruby.install!</h3>
 		<ul>
-			<li>Mac OS: Ya viene instalado</li>
-			<li>Linux: Ya instalado, o "apt-get install ruby irb ...."</li>
+			<li>Mac OS: Ya viene instalado (pero versión antigua 1.8.7)<br/><br/></li>
+			<li>Linux: Ya instalado, o "apt-get install ruby irb ...."<br/><br/></li>
 		 	<li>Windows: <a href="http://rubyinstaller.org" target="_blank">rubyinstaller.org</a> o <a href="http://railsinstaller.org" target="_blank">railsinstaller.org</a></li>
 		</ul>
 	</article>
@@ -333,14 +349,14 @@ square = lambda { |n| n * n }
 	<article>
 		<h3>Ruby.installed?</h3>
 
-		<pre>
+		<pre class="big">
 conf$ ruby -v
 => ruby 1.9.....
 		</pre>
 
 		<h3>Interactive Ruby</h3>
 
-		<pre>
+		<pre class="big">
 conf$ irb
 "hola mundo".split
 => ["hola", "mundo"]
@@ -395,7 +411,7 @@ conf$ irb
 	<article>
 		<h3>Rake: Ruby Make</h3>
 
-		<pre>
+		<pre class="big">
 # Rakefile
 task :default => [:test]
 
@@ -418,7 +434,7 @@ rake test
 		<p>Librerías, o "gemas" de todo tipo</p>
 		<p>Sistema de repositorios símil Debian/Ubuntu</p>
 
-		<pre>
+		<pre class="big">
 # Bash
 gem install 'twitter'
 		</pre>
@@ -428,10 +444,11 @@ gem install 'twitter'
 	<article>
 		<h3>RubyGems: Ejemplo @Twitter</h3>
 
-		<pre>
+		<pre class="big">
 # irb
 > require 'twitter'
 => true
+
 > Twitter.user_timeline("inkel").first.text
 => "cerrando detalles de la charla de #Ruby para la UNTreF"
 		</pre>
@@ -439,7 +456,7 @@ gem install 'twitter'
 	</article>
 
 	<article>
-		<h3>Gems Más Usados</h3>
+		<h3>Algunos Gems muy Usados</h3>
 
 		<ul>
 			<li>Sass</li>
@@ -706,8 +723,7 @@ $ rake db:migrate
 	<article>
 		<h3>Recursos</h3>
 
-		<ul>
-			<li>Slides: <a href="https://github.com/ceneon/ruby-talk/">github.com/ceneon/ruby-talk</a></li>
+		<ul>			
 			<li><a href="http://tryruby.org" target="_blank">tryruby.org</a></li>
 			<li><a href="http://ruby-lang.org/es" target="_blank">ruby-lang.org/es/</a> -> "Ruby en 20 minutos"</li>
 			<li>Lista rubysur@googlegroups.com</li>
@@ -745,7 +761,10 @@ $ rake db:migrate
 	</article>
 
 	<article>
-		<h3>RailsGirls Buenos Aires</h3>
+		<h3>Rails Girls Buenos Aires</h3>		
+		<p>
+			<img src="img/railsgirls.png" />
+		</p>
 		<p>
 			15 y 16 de Junio
 		</p>
@@ -790,6 +809,14 @@ $ rake db:migrate
 
 	<article>
 		<h1>¿Preguntas?</h1>
+
+
+
+		<div style="float:right; margin-top:280px">
+			Slides: 
+			<a href="https://github.com/ceneon/ruby-talk/"> github.com/ceneon/ruby-talk <img src="img/qrslides.png" style="width:100px" /></a>
+		</div>
+
 	</article>
 
 	<article>
@@ -801,6 +828,11 @@ $ rake db:migrate
 		<a href="http://rubyconfargentina.org/">rubyconfargentina.org</a> - 
 		<a href="https://twitter.com/rubyconfar">@rubyconfar</a>
 		</h2>
+
+		<div style="float:right; margin-top:280px">
+			Slides: 
+			<a href="https://github.com/ceneon/ruby-talk/"> github.com/ceneon/ruby-talk <img src="img/qrslides.png" style="width:100px" /></a>
+		</div>
 	</article>
 
     <article class='biglogo'>
