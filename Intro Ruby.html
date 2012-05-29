@@ -233,6 +233,73 @@ nil.class
       </article>
 
       <article>
+        <h3>Clases</h3>
+        <pre class="big">
+class Person
+  attr_accessor :name
+end
+inkel = Person.new
+inkel.name = "Leandro"
+puts inkel.name # => "Leandro"</pre>
+      </article>
+
+      <article>
+        <h3>M&oacute;dulos</h3>
+        <pre class="big">
+module Say
+  def self.say
+    "I'm a module!"
+  end
+end
+Say.new # => NoMethodError
+puts Say.say # => "I'm a module!"</pre>
+      </article>
+
+      <article>
+        <h3>Herencia</h3>
+        <pre class="big">
+class Animal
+  attr_accessor :kind
+end
+class Human < Animal
+  def initialize
+    @kind = "Human"
+  end
+end</pre>
+      </article>
+
+      <article>
+        <h3>extend/include</h3>
+        <pre class="big">
+module Extend
+  def de_clase
+    "class method"
+  end
+end
+module Include
+  def de_instancia
+    "instance method"
+  end
+end
+class EI
+  extend Extend
+  include Include
+end</pre>
+      </article>
+
+      <article>
+        <h3>extend/include 2</h3>
+        <pre>
+EI.de_clase
+# => class method
+EI.new.de_instancia
+# => instance method</pre>
+
+        <p>Es una buena manera de extender funcionalidades en las clases.</p>
+        <p>En cierto sentido, similar a las interfaces de Java o a los templates de C++.</p>
+      </article>
+
+      <article>
         <h3>Arrays</h3>
         <pre class="big">
 nums  = [1, 2, 3, 4, 5]
