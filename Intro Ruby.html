@@ -427,7 +427,7 @@ end
         <h3>Lambda</h3>
 
         <pre>
-reverse_string_order = lambda {  |x, y|  y <=> x }
+reverse_string_order = lambda {  |x, y|  y.to_s <=> x.to_s }
 [1, 20, 3].sort &reverse_string_order
 # => [20, 3, 1]
 
